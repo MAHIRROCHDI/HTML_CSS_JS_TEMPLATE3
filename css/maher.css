@@ -961,6 +961,7 @@ padding-left: 80px ;
     top: 0;
     height: 27px;
     background: var(--main-color);
+    transition : width 2s linear ;
 }
 /* end skills  */
 /* start work */
