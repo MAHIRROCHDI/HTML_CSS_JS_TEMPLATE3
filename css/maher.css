@@ -961,7 +961,7 @@ padding-left: 80px ;
     top: 0;
     height: 27px;
     background: var(--main-color);
-    transition : width 2s linear ;
+    transition : width 1.5s linear ;
 }
 /* end skills  */
 /* start work */
@@ -1087,7 +1087,7 @@ width : 100px ;
     transition : var(--main-transition);
 } 
 .events .content .time .unit span {
-    display : block ; 
+    display : block ;
     transition: var(--main-transition);
 }
 .events .content .time .unit span:first-child{
