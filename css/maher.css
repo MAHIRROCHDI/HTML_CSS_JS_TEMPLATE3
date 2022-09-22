@@ -76,10 +76,10 @@ a {
     transform: translateY(-50%);
 }
 .main-title::after {
-   right : -30px ; 
+    right : -30px ; 
 }
 .main-title::before {
-   left : -30px ; 
+    left : -30px ; 
 }
 .main-title:hover::after {
     z-index : -1 ; 
@@ -126,6 +126,11 @@ a {
 .dots-down {
     bottom : 200px ; 
     left : 0 ; 
+}
+@media(max-width : 767px){
+    .dots {
+        display : none ; 
+    }
 }
 /* start scroll to top */
 .up{
