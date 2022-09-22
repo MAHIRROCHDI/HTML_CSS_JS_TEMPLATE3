@@ -1,47 +1,3 @@
-//to top scroll :
-let span = document.querySelector(".up") ;
-window.onscroll = function() {
-    this.scrollY >= 1000 ? span.classList.add("show") : span.classList.remove("show") ;
-}
-span.onclick = function() {
-    window.scrollTo( {
-        top : 0 , 
-        behavior : "smooth" ,
-    }
-    );
-};
-//Increase numbers on scrolling :
-let nums = document.querySelectorAll(".stats .num") ;
-let statsSection = document.querySelector(".stats") ;
-let started = false ;  
-window.onscroll = function() {
-    if( window.scrollY >= statsSection.offsetTop - 100 ){
-        if(!started){
-            nums.forEach((num) => startCount(num)) ; 
-        }
-        started = true ;
-    } 
-};
-function startCount(el) {
-    let goal = el.dataset.goal ; 
-    let count = setInterval(() => {
-        el.textContent++ ; 
-        if(el.textContent == goal ){
-            clearInterval(count) ; 
-        }
-    }, 2000 / goal);
-} ; 
-//Animite width on scrolling :
-let spansProg = document.querySelectorAll(".progress span")
-let skillSection = document.querySelector(".our-skills") ;
-window.onscroll = function() {
-    if( window.scrollY >= skillSection.offsetTop ){
-        spansProg.forEach((span) => {
-            span.style.width = span.dataset.width ; 
-        });
-    }
-};
-
 //Create CountDown timer : 
 let countDownDate = new Date("Dec 31, 2022 23:59:59").getTime() ; 
 
@@ -67,3 +23,47 @@ let counter = setInterval(() => {
         clearInterval(counter) ; 
     }
 },1000); 
+
+let spansProg = document.querySelectorAll(".progress span")
+let skills = document.querySelector(".our-skills") ;
+let span = document.querySelector(".up") ;
+let nums = document.querySelectorAll(".stats h3") ;
+let statsSection = document.querySelector(".stats") ;
+let started = false ;  
+
+function startCount(el) {
+    let goal = el.dataset.goal ; 
+    let count = setInterval(() => {
+        el.textContent++ ; 
+        if(el.textContent == goal ){
+            clearInterval(count) ; 
+        }
+    } , 2000 / goal);
+}
+
+window.onscroll = function() {
+    //to top scroll :
+    if(this.scrollY >= 1000){
+        span.classList.add("show") ; 
+    }else span.classList.remove("show");
+    //Animite width on scrolling :
+    if( window.scrollY >= skills.offsetTop ){
+        spansProg.forEach((span) => {
+            span.style.width = span.dataset.width ; 
+        });
+    }
+    //Increase numbers on scrolling :
+    if( window.scrollY >= statsSection.offsetTop - 300 ){
+        if(!started){
+            nums.forEach((num) => startCount(num)) ; 
+        }
+        started = true ;
+    } 
+};
+span.onclick = function() {
+    window.scrollTo( {
+        top : 0 , 
+        behavior : "smooth" ,
+    }
+    );
+};
